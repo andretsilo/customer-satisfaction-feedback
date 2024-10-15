@@ -1,0 +1,51 @@
+
+
+cqlsh> CREATE KEYSPACE stats WITH REPLICATION = { 
+   'class' : 'SimpleStrategy', 
+   'replication_factor' : 1 
+  };
+
+
+cqlsh> USE stats;
+
+cqlsh:stats> CREATE TABLE counter_metrics_bysensor_id_and_by_date (
+            sensor_id varchar,
+            date int,
+            daily_counter counter,
+            PRIMARY KEY (sensor_id, date)
+         );
+cqlsh:stats> CREATE TABLE daily_metrics_bysensor_id (
+            sensor_id varchar,
+            ts timestamp,
+            date int,
+            startdate int,
+            sensor_name varchar,
+            value int,
+            PRIMARY KEY (sensor_id, date)
+         );
+
+
+select * from counter_metrics_bysensor_id_and_by_date;
+select * from daily_metrics_bysensor_id;
+
+
+Update daily_metrics_bysensor_id set VALUE=4 where  sensor_id='100001';
+UPDATE counter_metrics_bysensor_id_and_by_date set daily_counter=daily_counter+1 where sensor_id='100001';
+
+
+select * from counter_metrics_bysensor_id_and_by_date;
+select * from daily_metrics_bysensor_id;
+
+
+
+ Queries:
+ Q1: how many buttons pressed per sensor_id and per day
+ Q2: what was th total score per sensor_id and per day
+
+ 
+ Application will Update actions
+U1:Update for inserting a new pair of name-sensor_id and reset value and set the start date as today
+U2:Update set score for a sensor_id by date
+U3:Update the counter (by sensor_id and by date) by one every time a button is pressed
+ 
+ 

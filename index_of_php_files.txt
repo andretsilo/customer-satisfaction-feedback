@@ -1,0 +1,14 @@
+27/02/2019
+cas40.php: update both counter and add in daily metrics: http://18.222.94.171/cas40.php?sensor_id=100001&value=6
+cas50.php: fetch statistics per day from all sensors: http://18.222.94.171/cas50.php?sensor_id=100001&date=20190227
+cas51.php: fetch statistics with average per day from all sensors: http://18.222.94.171/cas51.php?sensor_id=100001&date=20190213
+
+
+
+18/02/2019
+cas8.php: print all sensor names and sensorids. Find this php under php files
+cas12.php: print accumulated value per sensorid and per date: http://18.191.223.150/cas12.php?sensor_id=100001&date=20190202
+cas16.php: update counter by sensor_id and date: http://18.191.223.150/cas16.php?sensor_id=100001&date=20190204
+cas17.php: update daily_metrics_bysensor_id set value by sensor_id and date: http://18.191.223.150/cas17.php?sensor_id=100001&date=20190213&value=1
+
+

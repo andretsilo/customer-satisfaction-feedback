@@ -1,0 +1,22 @@
+How to Enter in AWS AWS Region Ohio instance:
+
+1. Get inside AWS account (https://us-east-2.console.aws.amazon.com) and start the instance and get the DNS of the started instance for example ec2-18-219-146-164.us-east-2.compute.amazonaws.com. 
+2. Start terminal and execure remote ssh command from the directory where the certificate file .pem is located
+cd desktop/MyDocuments/iots/tools/
+ssh -vvv -i ubuntu_cassandra.pem ubuntu@ec2-18-222-94-171.us-east-2.compute.amazonaws.com
+
+3. Once inside the aws instance 
+Start Cassandra
+cd /home/ubuntu/dse-5.1.12/bin/
+./dse cassandra
+check DB status: 
+./nodetool status
+start cqlsh ./cqlsh
+
+5. Deploy php services under
+cd /var/www/html/
+Error logs tail -f /var/log/apache2/error.log
+
+4. Test from internet that the AWS instance is offering php services and is connected to the cassandra running DB
+ http://ip_aws_instance/cas8.php
+cas8.php: print all sensor names and sensorids. Find this php under php files
